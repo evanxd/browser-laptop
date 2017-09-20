@@ -7,8 +7,6 @@
 
 let ready = false
 
-// Setup the crash handling
-const CrashHerald = require('./crash-herald')
 const telemetry = require('./telemetry')
 
 // set initial base line checkpoint
@@ -102,9 +100,10 @@ loadAppStatePromise.then((initialImmutableState) => {
   }
   if (initialImmutableState.getIn(['settings', SEND_CRASH_REPORTS]) !== false) {
     console.log('Crash reporting enabled')
-    CrashHerald.init()
+    electron.crashReporter.setEnabled(true)
   } else {
     console.log('Crash reporting disabled')
+    electron.crashReporter.setEnabled(false)
   }
   if (initialImmutableState.getIn(['settings', SMOOTH_SCROLL_ENABLED]) === false) {
     app.commandLine.appendSwitch('disable-smooth-scrolling')
