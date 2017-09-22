@@ -1305,9 +1305,9 @@ function onMainContextMenu (nodeProps, frame, tab, contextMenuType) {
   }
 }
 
-function onFlashContextMenu (nodeProps, frameProps) {
+function onFlashContextMenu (sender, frameProps) {
   const flashMenu = Menu.buildFromTemplate(flashTemplateInit(frameProps))
-  flashMenu.popup(getCurrentWindow())
+  flashMenu.popup(sender)
 }
 
 function onTabContextMenu (frameProps, e) {

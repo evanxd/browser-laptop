@@ -463,7 +463,7 @@ class Frame extends React.Component {
       if (this.frame.isEmpty()) {
         return
       }
-      contextMenus.onFlashContextMenu(e.params, this.frame)
+      contextMenus.onFlashContextMenu(e.sender, this.frame)
       e.preventDefault()
       e.stopPropagation()
     })
